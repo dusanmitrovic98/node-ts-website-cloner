@@ -83,3 +83,4 @@ async function app(): Promise<void> {
     fileName: string,
     data: ArrayBuffer
   ): void {
+    if (path.extname(fileName) === ".html") {
