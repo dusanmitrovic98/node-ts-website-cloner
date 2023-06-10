@@ -31,3 +31,4 @@ async function app(): Promise<void> {
 
       // Skip downloading if the file extension is not valid
       if (!isValidFileExtension(fileExtension)) {
+        console.log(`Skipped: ${fileName}`);
