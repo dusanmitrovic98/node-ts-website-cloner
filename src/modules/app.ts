@@ -82,3 +82,4 @@ async function app(): Promise<void> {
     directoryPath: string,
     fileName: string,
     data: ArrayBuffer
+  ): void {
