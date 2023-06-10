@@ -58,3 +58,4 @@ async function app(): Promise<void> {
   ): Promise<[string[], string[]]> {
     const [stylesheetUrls, scriptSrcs] = await page.evaluate(() => {
       const stylesheets = Array.from(
+        document.querySelectorAll('link[rel="stylesheet"]')
