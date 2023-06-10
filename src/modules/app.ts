@@ -56,3 +56,4 @@ async function app(): Promise<void> {
   async function extractStaticResourceUrls(
     page: Page
   ): Promise<[string[], string[]]> {
+    const [stylesheetUrls, scriptSrcs] = await page.evaluate(() => {
