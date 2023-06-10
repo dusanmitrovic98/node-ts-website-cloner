@@ -62,3 +62,4 @@ async function app(): Promise<void> {
       ).map((stylesheet) => (stylesheet as HTMLLinkElement).href);
 
       const scripts = Array.from(document.querySelectorAll("script[src]")).map(
+        (script) => (script as HTMLScriptElement).src
