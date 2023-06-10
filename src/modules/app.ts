@@ -44,3 +44,4 @@ async function app(): Promise<void> {
         console.log(`Downloaded: ${fileName}`);
       } catch (error) {
         console.error(`Error downloading file: ${fileName}`, error);
+      }
