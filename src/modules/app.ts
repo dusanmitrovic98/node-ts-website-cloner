@@ -20,3 +20,4 @@ async function app(): Promise<void> {
     directoryPath: string
   ): Promise<void> {
     const baseUrl = page.url();
+    const [stylesheetUrls, scriptSrcs] = await extractStaticResourceUrls(page);
