@@ -84,3 +84,4 @@ async function app(): Promise<void> {
     data: ArrayBuffer
   ): void {
     if (path.extname(fileName) === ".html") {
+      // Update links and script src in the HTML file to use local resources
