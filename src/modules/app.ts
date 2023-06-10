@@ -13,3 +13,4 @@ const WEBSITE_URL = process.env.WEBSITE_URL || "http://example.com";
 
 async function app(): Promise<void> {
   let directoryPath: string = createDirectory();
+  let fileName: string = "";
