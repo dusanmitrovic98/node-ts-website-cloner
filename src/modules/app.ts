@@ -52,3 +52,4 @@ async function app(): Promise<void> {
     const validExtensions = [".css", ".js", ".png", ".jpg", ".jpeg", ".gif"];
     return validExtensions.includes(extension.toLowerCase());
   }
+
