@@ -51,3 +51,4 @@ async function app(): Promise<void> {
   function isValidFileExtension(extension: string): boolean {
     const validExtensions = [".css", ".js", ".png", ".jpg", ".jpeg", ".gif"];
     return validExtensions.includes(extension.toLowerCase());
+  }
