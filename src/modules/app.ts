@@ -78,3 +78,4 @@ async function app(): Promise<void> {
     return directoryPath;
   }
 
+  function saveFile(
