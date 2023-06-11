@@ -81,3 +81,90 @@ async function app(): Promise<void> {
   function saveFile(
     directoryPath: string,
     fileName: string,
+    data: ArrayBuffer
+  ): void {
+    if (path.extname(fileName) === ".html") {
+      // Update links and script src in the HTML file to use local resources
+      const htmlContent = Buffer.from(data).toString("utf-8");
+      const updatedScriptHtmlContent = htmlContent.replace(
+        /<script src="([^"]+)"><\/script>/g,
+        (match, scriptSrc) => {
+          const scriptFileName = path.basename(scriptSrc);
+          return `<script src="${scriptFileName}"></script>`;
+        }
+      );
+
+      const updatedHtmlContent = updatedScriptHtmlContent.replace(
+        /<link rel="stylesheet" href="([^"]+)">/g,
+        (match, cssHref) => {
+          const cssFileName = path.basename(cssHref);
+          return `<link rel="stylesheet" href="${cssFileName}">`;
+        }
+      );
+
+      fs.writeFileSync(path.join(directoryPath, fileName), updatedHtmlContent);
+    } else {
+      fs.writeFileSync(path.join(directoryPath, fileName), Buffer.from(data));
+    }
+  }
+
+  async function scrapeAndDownloadPage(directoryPath: string): Promise<string> {
+    const browser = await puppeteer.launch({ headless: "new" });
+
+    const page = await browser.newPage();
+
+    try {
+      await page.goto(WEBSITE_URL);
+
+      const htmlContent = await page.content();
+      fileName = `${Date.now()}.html`;
+      saveFile(directoryPath, fileName, Buffer.from(htmlContent));
+      await downloadStaticResources(page, directoryPath);
+    } catch (error) {
+      console.error("Error during page navigation:", error);
+    } finally {
+      await browser.close();
+    }
+
+    return Promise.resolve(fileName);
+  }
+
+  function modifyDownloadedHtmlFile(htmlFilePath: string): void {
+    const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
+
+    const updatedScriptHtmlContent = htmlContent.replace(
+      /<script[^>]+src="(?:https?:\/\/)?[^"]+\/([^"]+)"><\/script>/g,
+      (match, scriptSrc) => {
+        const scriptFileName = path.basename(scriptSrc);
+        return `<script src="${scriptFileName}"></script>`;
+      }
+    );
+
+    // Update CSS link href references
+    const updatedHtmlContent = updatedScriptHtmlContent.replace(
+      /<link[^>]+href="(?:https?:\/\/)?[^"]+\/([^"]+\.css)"[^>]*>/g,
+      (match, cssHref) => {
+        const cssFileName = path.basename(cssHref);
+        return `<link rel="stylesheet" href="${cssFileName}">`;
+      }
+    );
+
+    fs.writeFileSync(htmlFilePath, updatedHtmlContent);
+  }
+
+  scrapeAndDownloadPage(directoryPath).then((name: string) => {
+    const htmlFilePath: string = directoryPath + "\\" + name;
+    modifyDownloadedHtmlFile(htmlFilePath);
+    openInBrowser(htmlFilePath);
+  });
+
+  function openInBrowser(filePath: string): void {
+    open(filePath)
+      .then(() => console.log(`Opened file in browser: ${filePath}`))
+      .catch((error: any) =>
+        console.error(`Error opening file in browser: ${filePath}`, error)
+      );
+  }
+}
+
+export default app;
