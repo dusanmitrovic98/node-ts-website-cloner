@@ -63,3 +63,4 @@ async function app(): Promise<void> {
 
       const scripts = Array.from(document.querySelectorAll("script[src]")).map(
         (script) => (script as HTMLScriptElement).src
+      );
