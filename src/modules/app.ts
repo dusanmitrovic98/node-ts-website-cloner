@@ -43,3 +43,4 @@ async function app(): Promise<void> {
         saveFile(directoryPath, fileName, data);
         console.log(`Downloaded: ${fileName}`);
       } catch (error) {
+        console.error(`Error downloading file: ${fileName}`, error);
