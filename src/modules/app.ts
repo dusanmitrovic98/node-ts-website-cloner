@@ -53,3 +53,4 @@ async function app(): Promise<void> {
     return validExtensions.includes(extension.toLowerCase());
   }
 
+  async function extractStaticResourceUrls(
