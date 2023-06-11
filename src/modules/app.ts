@@ -48,3 +48,4 @@ async function app(): Promise<void> {
     }
   }
 
+  function isValidFileExtension(extension: string): boolean {
