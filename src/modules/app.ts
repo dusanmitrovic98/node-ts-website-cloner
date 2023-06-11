@@ -75,3 +75,4 @@ async function app(): Promise<void> {
     const directoryPath = path.join(".", ".pages", Date.now().toString());
     fs.mkdirSync(directoryPath, { recursive: true });
     console.log("Directory created successfully!");
+    return directoryPath;
