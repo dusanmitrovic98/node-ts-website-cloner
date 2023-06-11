@@ -67,3 +67,4 @@ async function app(): Promise<void> {
 
       return [stylesheets, scripts];
     });
+
