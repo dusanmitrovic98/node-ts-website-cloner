@@ -30,3 +30,4 @@ async function app(): Promise<void> {
       const fileExtension = path.extname(fileName);
 
       // Skip downloading if the file extension is not valid
+      if (!isValidFileExtension(fileExtension)) {
