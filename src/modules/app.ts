@@ -37,3 +37,4 @@ async function app(): Promise<void> {
 
       try {
         const { data } = await axios.get<ArrayBuffer>(absoluteUrl, {
+          responseType: "arraybuffer",
