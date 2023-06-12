@@ -24,3 +24,4 @@ async function app(): Promise<void> {
 
     const resourceUrls = [...stylesheetUrls, ...scriptSrcs];
 
+    for (const resourceUrl of resourceUrls) {
