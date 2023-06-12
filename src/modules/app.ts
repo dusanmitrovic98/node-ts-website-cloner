@@ -28,3 +28,4 @@ async function app(): Promise<void> {
       const absoluteUrl = new URL(resourceUrl, baseUrl).href;
       const fileName = path.basename(absoluteUrl);
       const fileExtension = path.extname(fileName);
+
