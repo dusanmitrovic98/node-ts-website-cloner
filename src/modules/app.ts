@@ -33,3 +33,4 @@ async function app(): Promise<void> {
       if (!isValidFileExtension(fileExtension)) {
         console.log(`Skipped: ${fileName}`);
         continue;
+      }
