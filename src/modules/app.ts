@@ -35,3 +35,4 @@ async function app(): Promise<void> {
         continue;
       }
 
+      try {
