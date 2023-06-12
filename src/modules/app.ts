@@ -15,3 +15,4 @@ async function app(): Promise<void> {
   let directoryPath: string = createDirectory();
   let fileName: string = "";
 
+  async function downloadStaticResources(
