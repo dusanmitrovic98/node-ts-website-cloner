@@ -16,3 +16,4 @@ async function app(): Promise<void> {
   let fileName: string = "";
 
   async function downloadStaticResources(
+    page: Page,
