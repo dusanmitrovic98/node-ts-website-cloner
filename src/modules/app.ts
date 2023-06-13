@@ -26,3 +26,4 @@ async function app(): Promise<void> {
 
     for (const resourceUrl of resourceUrls) {
       const absoluteUrl = new URL(resourceUrl, baseUrl).href;
+      const fileName = path.basename(absoluteUrl);
