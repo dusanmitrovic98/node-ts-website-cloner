@@ -41,3 +41,4 @@ async function app(): Promise<void> {
         });
 
         saveFile(directoryPath, fileName, data);
+        console.log(`Downloaded: ${fileName}`);
