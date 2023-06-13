@@ -9,3 +9,4 @@ import fs from "fs";
 
 dotenv.config();
 
+const WEBSITE_URL = process.env.WEBSITE_URL || "http://example.com";
