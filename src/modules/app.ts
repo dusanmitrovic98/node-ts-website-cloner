@@ -57,3 +57,4 @@ async function app(): Promise<void> {
     page: Page
   ): Promise<[string[], string[]]> {
     const [stylesheetUrls, scriptSrcs] = await page.evaluate(() => {
+      const stylesheets = Array.from(
