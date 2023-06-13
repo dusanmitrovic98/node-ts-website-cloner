@@ -19,3 +19,4 @@ async function app(): Promise<void> {
     page: Page,
     directoryPath: string
   ): Promise<void> {
+    const baseUrl = page.url();
