@@ -87,3 +87,4 @@ async function app(): Promise<void> {
       // Update links and script src in the HTML file to use local resources
       const htmlContent = Buffer.from(data).toString("utf-8");
       const updatedScriptHtmlContent = htmlContent.replace(
+        /<script src="([^"]+)"><\/script>/g,
