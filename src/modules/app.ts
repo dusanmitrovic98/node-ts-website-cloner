@@ -54,3 +54,4 @@ async function app(): Promise<void> {
   }
 
   async function extractStaticResourceUrls(
+    page: Page
