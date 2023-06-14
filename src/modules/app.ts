@@ -40,3 +40,4 @@ async function app(): Promise<void> {
           responseType: "arraybuffer",
         });
 
+        saveFile(directoryPath, fileName, data);
