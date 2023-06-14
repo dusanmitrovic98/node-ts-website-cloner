@@ -7,3 +7,4 @@ import open from "open";
 import path from "path";
 import fs from "fs";
 
+dotenv.config();
