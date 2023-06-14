@@ -76,3 +76,4 @@ async function app(): Promise<void> {
     fs.mkdirSync(directoryPath, { recursive: true });
     console.log("Directory created successfully!");
     return directoryPath;
+  }
