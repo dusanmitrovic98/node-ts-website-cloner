@@ -81,3 +81,4 @@ async function app(): Promise<void> {
   function saveFile(
     directoryPath: string,
     fileName: string,
+    data: ArrayBuffer
