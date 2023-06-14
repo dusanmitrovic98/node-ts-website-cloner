@@ -45,3 +45,4 @@ async function app(): Promise<void> {
       } catch (error) {
         console.error(`Error downloading file: ${fileName}`, error);
       }
+    }
