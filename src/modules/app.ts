@@ -17,3 +17,4 @@ async function app(): Promise<void> {
 
   async function downloadStaticResources(
     page: Page,
+    directoryPath: string
