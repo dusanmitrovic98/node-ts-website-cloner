@@ -95,3 +95,4 @@ async function app(): Promise<void> {
       );
 
       const updatedHtmlContent = updatedScriptHtmlContent.replace(
+        /<link rel="stylesheet" href="([^"]+)">/g,
