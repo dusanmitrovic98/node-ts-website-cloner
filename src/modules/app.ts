@@ -88,3 +88,4 @@ async function app(): Promise<void> {
       const htmlContent = Buffer.from(data).toString("utf-8");
       const updatedScriptHtmlContent = htmlContent.replace(
         /<script src="([^"]+)"><\/script>/g,
+        (match, scriptSrc) => {
