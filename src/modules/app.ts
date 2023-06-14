@@ -29,3 +29,4 @@ async function app(): Promise<void> {
       const fileName = path.basename(absoluteUrl);
       const fileExtension = path.extname(fileName);
 
+      // Skip downloading if the file extension is not valid
