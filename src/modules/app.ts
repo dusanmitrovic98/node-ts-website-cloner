@@ -68,32 +68,3 @@ async function app(): Promise<void> {
       return [stylesheets, scripts];
     });
 
-    return [stylesheetUrls, scriptSrcs];
-  }
-
-  function createDirectory(): string {
-    const directoryPath = path.join(".", ".pages", Date.now().toString());
-    fs.mkdirSync(directoryPath, { recursive: true });
-    console.log("Directory created successfully!");
-    return directoryPath;
-  }
-
-  function saveFile(
-    directoryPath: string,
-    fileName: string,
-    data: ArrayBuffer
-  ): void {
-    if (path.extname(fileName) === ".html") {
-      // Update links and script src in the HTML file to use local resources
-      const htmlContent = Buffer.from(data).toString("utf-8");
-      const updatedScriptHtmlContent = htmlContent.replace(
-        /<script src="([^"]+)"><\/script>/g,
-        (match, scriptSrc) => {
-          const scriptFileName = path.basename(scriptSrc);
-          return `<script src="${scriptFileName}"></script>`;
-        }
-      );
-
-      const updatedHtmlContent = updatedScriptHtmlContent.replace(
-        /<link rel="stylesheet" href="([^"]+)">/g,
-        (match, cssHref) => {
