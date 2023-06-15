@@ -72,3 +72,4 @@ async function app(): Promise<void> {
   }
 
   function createDirectory(): string {
+    const directoryPath = path.join(".", ".pages", Date.now().toString());
