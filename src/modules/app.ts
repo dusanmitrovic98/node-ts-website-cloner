@@ -39,3 +39,4 @@ async function app(): Promise<void> {
         const { data } = await axios.get<ArrayBuffer>(absoluteUrl, {
           responseType: "arraybuffer",
         });
+
