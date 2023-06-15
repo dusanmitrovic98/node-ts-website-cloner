@@ -59,3 +59,4 @@ async function app(): Promise<void> {
     const [stylesheetUrls, scriptSrcs] = await page.evaluate(() => {
       const stylesheets = Array.from(
         document.querySelectorAll('link[rel="stylesheet"]')
+      ).map((stylesheet) => (stylesheet as HTMLLinkElement).href);
