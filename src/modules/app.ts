@@ -97,3 +97,4 @@ async function app(): Promise<void> {
       const updatedHtmlContent = updatedScriptHtmlContent.replace(
         /<link rel="stylesheet" href="([^"]+)">/g,
         (match, cssHref) => {
+          const cssFileName = path.basename(cssHref);
