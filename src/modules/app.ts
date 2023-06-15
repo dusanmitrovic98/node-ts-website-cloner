@@ -65,3 +65,4 @@ async function app(): Promise<void> {
         (script) => (script as HTMLScriptElement).src
       );
 
+      return [stylesheets, scripts];
