@@ -46,3 +46,4 @@ async function app(): Promise<void> {
         console.error(`Error downloading file: ${fileName}`, error);
       }
     }
+  }
