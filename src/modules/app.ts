@@ -92,3 +92,4 @@ async function app(): Promise<void> {
           const scriptFileName = path.basename(scriptSrc);
           return `<script src="${scriptFileName}"></script>`;
         }
+      );
