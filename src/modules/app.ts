@@ -93,3 +93,4 @@ async function app(): Promise<void> {
           return `<script src="${scriptFileName}"></script>`;
         }
       );
+
