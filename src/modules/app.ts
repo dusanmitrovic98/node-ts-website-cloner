@@ -68,3 +68,4 @@ async function app(): Promise<void> {
       return [stylesheets, scripts];
     });
 
+    return [stylesheetUrls, scriptSrcs];
