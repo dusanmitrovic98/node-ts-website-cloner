@@ -85,3 +85,4 @@ async function app(): Promise<void> {
   ): void {
     if (path.extname(fileName) === ".html") {
       // Update links and script src in the HTML file to use local resources
+      const htmlContent = Buffer.from(data).toString("utf-8");
