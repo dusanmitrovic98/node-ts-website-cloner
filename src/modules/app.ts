@@ -71,3 +71,4 @@ async function app(): Promise<void> {
     return [stylesheetUrls, scriptSrcs];
   }
 
+  function createDirectory(): string {
