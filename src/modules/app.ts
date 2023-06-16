@@ -94,3 +94,4 @@ async function app(): Promise<void> {
         }
       );
 
+      const updatedHtmlContent = updatedScriptHtmlContent.replace(
