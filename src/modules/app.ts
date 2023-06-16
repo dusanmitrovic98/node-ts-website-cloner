@@ -89,3 +89,4 @@ async function app(): Promise<void> {
       const updatedScriptHtmlContent = htmlContent.replace(
         /<script src="([^"]+)"><\/script>/g,
         (match, scriptSrc) => {
+          const scriptFileName = path.basename(scriptSrc);
